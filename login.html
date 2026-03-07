@@ -1,39 +1,54 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  </head>
-  <body class="flex  justify-center items-center shadow-xl m-90  w-130 h-50">
-    <div class="bg-slate-200 shadow-lg items-center flex flex-col w-full rounded-md p-10">
-          <div class="flex flex-col items-center">
-            <img class="mb-5" src="assets/github-logo.png" alt="">
-            <h1 class="text-2xl font-bold">GitHub Issues Tracker</h1>
-            <h4 class="font-thin">Sign in to manage your issues</h4>
-          </div>
-          <div class="flex flex-col">
-            <label for="username" class="m-1">Username</label>
-            <input class="border shadow-md m-1 p-3 rounded-md w-104" type="text" placeholder="Enter Username">
-            <span class="text-purple-600 mb-4 font-normal ml-1">Default: admin</span>
-            <label for="password" class="m-1">Password</label>
-            <input type="text" placeholder="Enter Password" class="border shadow-md m-1 p-3 rounded-md w-104">
-            <span class="text-purple-600 mb-7 font-normal ml-1 ">Default: admin123</span>
-          </div>
-          <button class="bg-blue-800 text-white w-104 p-3 rounded-lg shadow-sm mb-5">Sign In</button>
 
-          <div class="flex mb-3 justify-around items-center gap-2">
-            <hr class="w-47">
-            <h1>OR</h1>
-            <hr class="w-47">
-          </div>
-          <div class="flex flex-col items-center">
-            <h4 class="mb-4">Demo Credentials:</h4>
-            <div class="bg-slate-100 items-center flex flex-col p-10 mb-12 w-104">
-                <h2><span class="font-bold">Username:</span>admin</h2>
-                <h2><span class="font-bold">Password:</span>admin123</h2>
-            </div>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="flex justify-center items-center min-h-screen bg-gray-100 p-4">
+
+  <div class="bg-slate-200 shadow-lg flex flex-col items-center w-full max-w-md rounded-md p-6 md:p-10">
+
+    <div class="flex flex-col items-center">
+      <img class="mb-5 w-16" src="assets/github-logo.png" alt="">
+      <h1 class="text-xl md:text-2xl font-bold text-center">GitHub Issues Tracker</h1>
+      <h4 class="font-thin text-center">Sign in to manage your issues</h4>
     </div>
-  </body>
+
+    <div class="flex flex-col w-full mt-6">
+      <label class="m-1">Username</label>
+      <input id="username" class="border shadow-md m-1 p-3 rounded-md w-full" type="text" placeholder="Enter Username">
+      <span class="text-purple-600 mb-4 font-normal ml-1">Default: admin</span>
+
+      <label class="m-1">Password</label>
+      <input id="password" type="text" placeholder="Enter Password" class="border shadow-md m-1 p-3 rounded-md w-full">
+      <span class="text-purple-600 mb-7 font-normal ml-1">Default: admin123</span>
+    </div>
+
+    <button onclick="login()" class="bg-blue-800 text-white w-full p-3 rounded-lg shadow-sm mb-5">
+      Sign In
+    </button>
+
+    <div class="flex mb-3 justify-center items-center gap-2 w-full">
+      <hr class="flex-1">
+      <h1>OR</h1>
+      <hr class="flex-1">
+    </div>
+
+    <div class="flex flex-col items-center w-full">
+      <h4 class="mb-4">Demo Credentials:</h4>
+
+      <div class="bg-slate-100 flex flex-col items-center p-6 w-full rounded-md">
+        <h2><span class="font-bold">Username:</span> admin</h2>
+        <h2><span class="font-bold">Password:</span> admin123</h2>
+      </div>
+
+    </div>
+
+  </div>
+  <script src="index.js"></script>
+</body>
+
 </html>
