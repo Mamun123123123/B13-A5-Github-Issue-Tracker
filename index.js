@@ -1,14 +1,17 @@
-document.querySelector("#login_btn").addEventListener("click", () => {
+if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "login.html";
+}
+function login() {
     const username = document.querySelector("#username").value;
     const password = document.querySelector("#password").value;
 
-    if(username === "admin" && password === "admin123"){
-        localStorage.setItem("loggedIn", "true");  
-        window.location.href = "index.html";       
+    if (username === "admin" && password === "admin123") {
+        localStorage.setItem("loggedIn", "true");
+        window.location.href = "index.html";
     } else {
         alert("Invalid username or password");
     }
-});
+}
 
 let allBtn = document.querySelector("#all")
 let openBtn = document.querySelector("#open")
