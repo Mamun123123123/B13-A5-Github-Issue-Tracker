@@ -52,6 +52,18 @@ closedBtn.addEventListener("click", () => {
 
 })
 
+let search_input = document.querySelector("#search_input")
+let search_btn = document.querySelector("#search_btn")
+
+search_btn.addEventListener("click", async (e) => {
+    e.preventDefault(); 
+    let query = search_input.value.trim();
+    let search_url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${query}`;
+    let response = await fetch(search_url);
+    let data = await response.json();
+    show(data.data);
+});
+
 function show(data) {
 
      let cards = document.querySelector("#issues")

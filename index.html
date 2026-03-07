@@ -18,8 +18,8 @@
         </div>
 
         <div class="flex gap-2">
-            <input type="text" class="border rounded-lg p-1 w-40" placeholder="Search issues">
-            <button class="bg-blue-600 px-3 py-1 rounded-md text-white">
+            <input id="search_input" type="text" class="border rounded-lg p-1 w-40" placeholder="Search issues">
+            <button id="search_btn" class="bg-blue-600 px-3 py-1 rounded-md text-white">
                 New Issue
             </button>
         </div>
@@ -38,7 +38,7 @@
             <div class="flex gap-2 items-center">
                 <img class="w-10" src="assets/Aperture.png" alt="">
                 <div>
-                    <h1 id="count" class="bg-yfont-bold"></h1>
+                    <h1 id="count" class="font-bold"> Issues</h1>
                     <p class="text-sm text-gray-600">Track and manage your project issues</p>
                 </div>
             </div>
@@ -52,7 +52,7 @@
     </section>
 
    <section id="issues" class="bg-slate-300 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 m-8 p-4 shadow-md rounded">
-
+    
    </section>
 
     <script src="index.js"></script>
