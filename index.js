@@ -1,13 +1,14 @@
-function login() {
+document.querySelector("#login_btn").addEventListener("click", () => {
+    const username = document.querySelector("#username").value;
+    const password = document.querySelector("#password").value;
 
-     let username = document.querySelector("#username").value;
-     let password = document.querySelector("#password").value;
-
-     (username === "admin" && password === "admin123")
-          ? window.location.href = "index.html"
-          : alert("Invalid username or password");
-
-}
+    if(username === "admin" && password === "admin123"){
+        localStorage.setItem("loggedIn", "true");  
+        window.location.href = "index.html";       
+    } else {
+        alert("Invalid username or password");
+    }
+});
 
 let allBtn = document.querySelector("#all")
 let openBtn = document.querySelector("#open")
