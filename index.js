@@ -55,13 +55,16 @@ closedBtn.addEventListener("click", () => {
 function show(data) {
 
      let cards = document.querySelector("#issues")
+     let count = document.querySelector("#count")
+     count.textContent = data.length
      cards.innerHTML = ""
 
      data.forEach(item => {
+           let borderColor = item.status === "open" ? "border-t-4 border-green-500" : "border-t-4 border-blue-900"
 
           cards.innerHTML += `
 
-<div class="bg-white p-5 rounded-lg shadow-md hover:shadow-xl transition mb-4">
+<div class="bg-white p-5 rounded-lg shadow-md hover:shadow-xl transition mb-4 ${borderColor}">
 
      <div class="flex justify-between items-center">
 
@@ -95,7 +98,7 @@ function show(data) {
      <div class="flex gap-2 mt-3">
 
           ${item.labels.map(label =>
-               `<span class="text-xs bg-blue-100 px-2 py-1 rounded">${label}</span>`
+               `<span class="items-center bg-yellow-50 uppercase rounded-2xl text-yellow-500 p-2">${label}</span>`
           ).join("")}
 
      </div>
