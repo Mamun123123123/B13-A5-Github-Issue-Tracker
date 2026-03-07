@@ -1,11 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Github-Issue-Tracker</title>
-</head>
-<body>
-    <h1>Hello</h1>
-</body>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="flex  justify-center items-center shadow-xl m-90  w-130 h-50">
+    <div class="bg-slate-200 shadow-lg items-center flex flex-col w-full rounded-md p-10">
+          <div class="flex flex-col items-center">
+            <img class="mb-5" src="assets/github-logo.png" alt="">
+            <h1 class="text-2xl font-bold">GitHub Issues Tracker</h1>
+            <h4 class="font-thin">Sign in to manage your issues</h4>
+          </div>
+          <div class="flex flex-col">
+            <label for="username" class="m-1">Username</label>
+            <input class="border shadow-md m-1 p-3 rounded-md w-104" type="text" placeholder="Enter Username">
+            <span class="text-purple-600 mb-4 font-normal ml-1">Default: admin</span>
+            <label for="password" class="m-1">Password</label>
+            <input type="text" placeholder="Enter Password" class="border shadow-md m-1 p-3 rounded-md w-104">
+            <span class="text-purple-600 mb-7 font-normal ml-1 ">Default: admin123</span>
+          </div>
+          <button class="bg-blue-800 text-white w-104 p-3 rounded-lg shadow-sm mb-5">Sign In</button>
+
+          <div class="flex mb-3 justify-around items-center gap-2">
+            <hr class="w-47">
+            <h1>OR</h1>
+            <hr class="w-47">
+          </div>
+          <div class="flex flex-col items-center">
+            <h4 class="mb-4">Demo Credentials:</h4>
+            <div class="bg-slate-100 items-center flex flex-col p-10 mb-12 w-104">
+                <h2><span class="font-bold">Username:</span>admin</h2>
+                <h2><span class="font-bold">Password:</span>admin123</h2>
+            </div>
+          </div>
+    </div>
+  </body>
 </html>
