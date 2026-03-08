@@ -68,6 +68,53 @@ search_btn.addEventListener("click", async (e) => {
     show(data.data);
 });
 
+function openModal(item) {
+
+    document.querySelector("#issue-modal").classList.remove("hidden")
+
+    document.querySelector("#modal-title").textContent = item.title
+
+    document.querySelector("#modal-status").textContent = item.status
+
+    document.querySelector("#modal-status").className =
+        item.status === "open"
+            ? "px-2 py-1 rounded-full bg-green-500 text-white text-xs"
+            : "px-2 py-1 rounded-full bg-blue-900 text-white text-xs"
+
+    document.querySelector("#modal-author").textContent = "Opened by " + item.author
+
+    document.querySelector("#modal-date").textContent =
+        new Date(item.created_at).toLocaleDateString()
+
+    document.querySelector("#modal-labels").innerHTML =
+        item.labels.map(label =>
+            `<span class="text-sm font-medium uppercase bg-blue-100 px-3 py-1 rounded">${label}</span>`
+        ).join("")
+
+    document.querySelector("#modal-description").textContent = item.description
+
+    document.querySelector("#modal-assignee").textContent =
+        item.assignee || "Unassigned"
+
+    document.querySelector("#modal-priority").textContent = item.priority
+}
+
+document.querySelector("#modal-close").addEventListener("click", () => {
+
+    document.querySelector("#issue-modal").classList.add("hidden")
+
+})
+
+
+document.querySelector("#issue-modal").addEventListener("click", (e) => {
+
+    if (e.target.id === "issue-modal") {
+        document.querySelector("#issue-modal").classList.add("hidden")
+    }
+
+})
+
+
 function show(data) {
 
      let cards = document.querySelector("#issues")
@@ -76,11 +123,16 @@ function show(data) {
      cards.innerHTML = ""
 
      data.forEach(item => {
-           let borderColor = item.status === "open" ? "border-t-4 border-green-500" : "border-t-4 border-blue-900"
 
-          cards.innerHTML += `
+          let borderColor = item.status === "open" 
+          ? "border-t-4 border-green-500" 
+          : "border-t-4 border-blue-900"
 
-<div class="bg-white p-5 rounded-lg shadow-md hover:shadow-xl transition mb-4 ${borderColor}">
+          let card = document.createElement("div")
+
+          card.className = `bg-white p-5 rounded-lg shadow-md hover:shadow-xl transition mb-4 ${borderColor}`
+
+          card.innerHTML = `
 
      <div class="flex justify-between items-center">
 
@@ -92,7 +144,6 @@ function show(data) {
 
      </div>
 
-
      <div class="mt-3">
 
           <h2 class="font-semibold text-lg">
@@ -100,7 +151,6 @@ function show(data) {
           </h2>
 
      </div>
-
 
      <div>
 
@@ -110,7 +160,6 @@ function show(data) {
 
      </div>
 
-
      <div class="flex gap-2 mt-3">
 
           ${item.labels.map(label =>
@@ -119,9 +168,7 @@ function show(data) {
 
      </div>
 
-
      <hr class="my-3">
-
 
      <div class="flex justify-between text-sm text-gray-500">
 
@@ -131,9 +178,14 @@ function show(data) {
 
      </div>
 
-</div>
+          `
 
-`
+          card.addEventListener("click", () => {
+               openModal(item)
+          })
+
+          cards.appendChild(card)
+
      })
 
 }

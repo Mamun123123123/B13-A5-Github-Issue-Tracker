@@ -51,9 +51,39 @@
         </div>
     </section>
 
-   <section id="issues" class="bg-slate-300 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 m-8 p-4 shadow-md rounded">
-    
-   </section>
+    <section id="issues"
+        class="bg-slate-300 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 m-8 p-4 shadow-md rounded">
+
+    </section>
+    <div id="issue-modal" class="fixed inset-0 backdrop-blur-0 hidden flex justify-center items-center">
+
+        <div class="bg-white/90 backdrop-blur-md rounded-lg shadow-xl w-11/12 max-w-lg p-6 relative">
+
+            <h2 id="modal-title" class="font-bold text-xl mb-2"></h2>
+
+            <div class="flex items-center gap-2 text-sm text-gray-600 mb-2">
+                <span id="modal-status" class="px-2 py-1 rounded-full text-white text-xs"></span>
+                <span id="modal-author"></span>
+                <span id="modal-date"></span>
+            </div>
+
+            <div id="modal-labels" class="flex gap-2 mb-4"></div>
+
+            <p id="modal-description" class="text-gray-700 mb-4"></p>
+
+            <div class="flex justify-between text-sm bg-gray-500 m-7 p-4 text-white border-t pt-2">
+                <span>Assignee: <b id="modal-assignee"></b></span>
+                <span>Priority: <b id="modal-priority"></b></span>
+            </div>
+
+            <button id="modal-close"
+                class="absolute bottom-2 right-0  bg-purple-600  p-2 text-white  rounded hover:bg-purple-700">
+                Close
+            </button>
+
+        </div>
+
+    </div>
 
     <script src="index.js"></script>
 
