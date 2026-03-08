@@ -34,13 +34,23 @@ async function getIssues() {
      show(allData)
 
 }
+function activeButton(btn){
+
+    allBtn.classList.remove("bg-blue-600","text-white")
+    openBtn.classList.remove("bg-blue-600","text-white")
+    closedBtn.classList.remove("bg-blue-600","text-white")
+
+    btn.classList.add("bg-blue-600","text-white")
+
+}
 
 allBtn.addEventListener("click", () => {
-     show(allData)
+        activeButton(allBtn)
+        show(allData)
 })
 
 openBtn.addEventListener("click", () => {
-
+      activeButton(openBtn)
      let openIssues = allData.filter(item => item.status === "open")
 
      show(openIssues)
@@ -49,12 +59,14 @@ openBtn.addEventListener("click", () => {
 
 
 closedBtn.addEventListener("click", () => {
-
+     activeButton(closedBtn)
      let closedIssues = allData.filter(item => item.status === "closed")
 
      show(closedIssues)
 
 })
+
+activeButton(allBtn)
 
 let search_input = document.querySelector("#search_input")
 let search_btn = document.querySelector("#search_btn")
@@ -67,6 +79,8 @@ search_btn.addEventListener("click", async (e) => {
     let data = await response.json();
     show(data.data);
 });
+
+
 
 function openModal(item) {
 
